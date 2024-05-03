@@ -7,16 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private _HttpClient:HttpClient) {}
+  constructor(private _HttpClient: HttpClient) {}
 
-    register(userDate:object):Observable<any>{
-      return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signup`, userDate);
+  register(userDate: object): Observable<any> {
+    // return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signup`, userDate);
+    return this._HttpClient.post(`https://localhost:5001/api/Account/register/owner`, userDate);
+  }
 
-    }
+  login(userDate: object): Observable<any> {
+    // return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`, userDate);
+    return this._HttpClient.post(`https://localhost:5001/api/Account/login`, userDate);
+  }
 
-    login(userDate:object):Observable<any>{
-      return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`, userDate);
-
-    }
-   }
-
+  confirmEmail(token: object): Observable<any> {
+    return this._HttpClient.get(`https://localhost:5001/api/Account/confirmation-code`, token);
+  }
+}

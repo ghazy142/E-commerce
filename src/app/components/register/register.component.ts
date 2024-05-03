@@ -18,11 +18,11 @@ errMsg:string ='';
 isLoading:boolean = false;
 
   registerForm:FormGroup=new FormGroup({
-      name: new FormControl('' ,[ Validators.required , Validators.minLength(3) , Validators.maxLength(25)] ),
-      email:new FormControl('',[ Validators.required , Validators.email] ),
-      password:new FormControl('',[ Validators.required ,Validators.minLength(8)] ), 
-      rePassword:new FormControl('' , [ Validators.required ,Validators.minLength(8)]),
-      phone:new FormControl('',[ Validators.required ,Validators.minLength(5)])
+    firstName: new FormControl('' ,[ Validators.required , Validators.minLength(3) , Validators.maxLength(25)] ),
+    lastName: new FormControl('' ,[ Validators.required , Validators.minLength(3) , Validators.maxLength(25)] ),
+    email:new FormControl('',[ Validators.required , Validators.email] ),
+    password:new FormControl('',[ Validators.required ,Validators.minLength(8)] ), 
+    phoneNumber:new FormControl('',[ Validators.required ,Validators.minLength(11)])
   }
 
   );
@@ -37,7 +37,7 @@ console.log(this.registerForm.value);
       this._AuthService.register(userDate).subscribe(
         {
           next: (response)=>{
-    if(response.message==="success"){
+    if(response.message==="Confirmation Code Has Been Sent"){
       // login
         this._Router.navigate(['/login']);
         this.isLoading = false;

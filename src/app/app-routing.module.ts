@@ -11,6 +11,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AutLayoutComponent } from './layouts/aut-layout/aut-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 import { authGuard } from './guards/auth.guard';
+import { DetailsproductsComponent } from './components/detailsproducts/detailsproducts.component';
+import { EmailConfirmationComponent } from './components/confirmation-code/confirmation-code.component';
 
 const routes: Routes = [
   {path: '', component: BlankLayoutComponent , children: [
@@ -18,14 +20,18 @@ const routes: Routes = [
     { path: "home",  component:HomeComponent, canActivate:[authGuard] },
     { path: "cart", component:CartComponent  , canActivate:[authGuard]},
     { path: "products", component:ProductsComponent , canActivate:[authGuard]},
+    { path: "details",  component:DetailsproductsComponent , canActivate:[authGuard] },
     { path: "categories", component:CategoriesComponent , canActivate:[authGuard] },
     { path: "brands", component:BrandsComponent  , canActivate:[authGuard]},
+
+
   ]},
   
   {
     path: '', component: AutLayoutComponent , children: [
       { path: "login", component:LoginComponent},
       { path: "register", component:RegisterComponent},
+      {path:"confirmation",component:EmailConfirmationComponent},
 ]},
   
 
