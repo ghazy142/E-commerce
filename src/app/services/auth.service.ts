@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -14,12 +14,14 @@ export class AuthService {
     return this._HttpClient.post(`https://localhost:5001/api/Account/register/owner`, userDate);
   }
 
-  login(userDate: object): Observable<any> {
+  login(userDate: any): Observable<any> {
     // return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`, userDate);
-    return this._HttpClient.post(`https://localhost:5001/api/Account/login`, userDate);
+    const params=new HttpParams().set('email',userDate.email ).set('passwd',userDate.password);  
+    return this._HttpClient.post(`https://localhost:5001/api/Account/login`, {}, {params});
   }
 
-  confirmEmail(token: object): Observable<any> {
-    return this._HttpClient.get(`https://localhost:5001/api/Account/confirmation-code`, token);
+  confirmEmail(email: string , code:number): Observable<any> {
+    const params=new HttpParams().set('email',email ).set('code',code);  
+    return  this._HttpClient.put(`https://localhost:5001/api/Account/email-confirmation`, {} , {params});
   }
 }

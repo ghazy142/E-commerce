@@ -1,5 +1,5 @@
 <section>
-    <form []="registerForm" (ngSubmit)="handleform()">
+    <form [formGroup]="registerForm" (ngSubmit)="handleform()">
         <div class="form-item">
             <label for="firstName">firstName</label>
             <input formControlName="firstName" id="firstName" type="text" class="form-control">

@@ -36,7 +36,7 @@ export class LoginComponent {
         this._AuthService.login(userDate).subscribe(
           {
             next: (response)=>{
-      if(response.message==="success"){
+      if(response.token){
         // login
         localStorage.setItem('_token' , 'response.token');
           this._Router.navigate(['/home']);

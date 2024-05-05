@@ -39,7 +39,7 @@ console.log(this.registerForm.value);
           next: (response)=>{
     if(response.message==="Confirmation Code Has Been Sent"){
       // login
-        this._Router.navigate(['/login']);
+        this._Router.navigate(['/mailconfirm']);
         this.isLoading = false;
 
     }

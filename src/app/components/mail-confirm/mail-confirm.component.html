@@ -1,0 +1,55 @@
+<section>
+    <h2> Email Confirmation</h2>
+    <p>Check your email for the confirmation code.</p>
+    <form [formGroup]="mailconfirm" (ngSubmit)="handleform()">
+
+
+
+        
+        <div class="form-item">
+            <label for="email">Email</label>
+            <input formControlName="email" id="email" type="email" class="form-control">
+            <div *ngIf="mailconfirm.get('email')?.touched && mailconfirm.get('email')?.errors ">
+                <p class="alert alert-danger" *ngIf="mailconfirm.get('email')?.getError('required')">email is Required</p>
+                <p class="alert alert-danger" *ngIf="mailconfirm.get('email')?.getError('email')">Invalid format</p>
+            </div>
+    
+
+        </div>
+
+        <div class="form-item">
+            <label for="code">Confirmation Code</label>
+            <input formControlName="code" id="code" type="tel" class="form-control">
+
+            <div *ngIf="mailconfirm.get('code')?.touched && mailconfirm.get('code')?.errors ">
+                <p class="alert alert-danger" *ngIf="mailconfirm.get('code')?.getError('required')">mailconfirm is Required</p>
+                <p class="alert alert-danger" *ngIf="mailconfirm.get('code')?.getError('minlength')">mailconfirm is 5</p>
+            </div>
+    
+        </div>
+
+            
+
+
+
+
+
+    <button [disabled]="mailconfirm.invalid || isLoading" type="submit"  class="main-btn m-2">
+        Confirm
+    <span *ngIf="isLoading"><i class="fa-solid fa-spinner fa-spin"></i></span></button>
+
+
+        <p *ngIf="errMsg" class="alert alert-danger">{{errMsg}} </p>
+        <p *ngIf="!isLoading && confirmationSuccess" class="alert alert-success">Email confirmed successfully!</p>
+
+
+    </form>
+</section>
+
+
+
+
+
+
+
+<p>mail-confirm works!</p>

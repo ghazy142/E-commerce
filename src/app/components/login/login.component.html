@@ -1,9 +1,9 @@
 <section>
-    <form []="loginForm" (ngSubmit)="handleform()">
+    <form [formGroup]="loginForm" (ngSubmit)="handleform()">
 
 
 
-
+        
         <div class="form-item">
             <label for="email">email</label>
             <input formControlName="email" id="email" type="email" class="form-control">

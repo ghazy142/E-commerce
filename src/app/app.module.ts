@@ -18,14 +18,14 @@ import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsproductsComponent } from './components/detailsproducts/detailsproducts.component';
-
-
-
+import { MailConfirmComponent } from './components/mail-confirm/mail-confirm.component';
+import { ROUTES, RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     CartComponent,
     ProductsComponent,
     CategoriesComponent,
@@ -39,13 +39,16 @@ import { DetailsproductsComponent } from './components/detailsproducts/detailspr
     AutLayoutComponent,
     BlankLayoutComponent,
     DetailsproductsComponent,
+    MailConfirmComponent,
   
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CommonModule
   ],
   providers: [
     provideClientHydration()
