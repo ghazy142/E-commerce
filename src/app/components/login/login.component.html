@@ -32,9 +32,19 @@
 
 
 
-    <button [disabled]="loginForm.invalid" type="submit"  class="main-btn m-2">
-        Login
-    <span *ngIf="isLoading"><i class="fa-solid fa-spinner fa-spin"></i></span></button>
+    <button [disabled]="loginForm.invalid" type="submit" data-label="Register" class="rainbow-hover">
+        <span class="sp">LOGIN</span>
+        <div id="page"  *ngIf="isLoading">
+            <div id="container">
+                <div id="ring"></div>
+                <div id="ring"></div>
+                <div id="ring"></div>
+                <div id="ring"></div>
+                <div id="h3"></div>
+            </div>
+        </div>
+    <!-- <span *ngIf="isLoading"><i class="fa-solid fa-spinner fa-spin"></i></span> -->
+</button>
 
 
         <p *ngIf="errMsg" class="alert alert-danger">{{errMsg}} </p>

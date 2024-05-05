@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Category } from '../../interfaces/category';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
@@ -13,15 +13,30 @@ import { CommonModule } from '@angular/common';
   imports: [ CarouselModule,CommonModule  ],
 
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit , AfterViewInit {
+  isLoading: boolean = true;
+  productData:any[]=[];
+  categories:Category[]=[];
+  
+  
+  
+  
   constructor(private _productsService: ProductsService){}
+  ngAfterViewInit(): void {
+    
+    throw new Error('Method not implemented.');
+  }
 
 
-productData:any[]=[];
-categories:Category[]=[];
+
 
 
   ngOnInit(): void {
+        // Simulating loading delay for demonstration purposes
+        setTimeout(() => {
+          // After the simulated delay, indicate that loading is complete
+          this.isLoading = false;
+        }, 3000);
  this._productsService.getProducts().subscribe({
   next: (response)=>{
     // console.log(response.data)
@@ -38,6 +53,7 @@ categories:Category[]=[];
   next: (response)=>{
     console.log(response);
     this.categories=response.data; 
+
  },
 
 
@@ -70,6 +86,7 @@ categories:Category[]=[];
       }
     },
     nav: true
+
   }
 
 
