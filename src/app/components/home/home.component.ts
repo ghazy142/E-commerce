@@ -1,8 +1,10 @@
 import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
-import { Category } from '../../interfaces/category';
+import { Category ,} from '../../interfaces/category';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Product } from '../../interfaces/product';
 
 
 @Component({
@@ -10,21 +12,21 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [ CarouselModule,CommonModule  ],
+  imports: [ CarouselModule,CommonModule,RouterLink ],
 
 })
 export class HomeComponent implements OnInit , AfterViewInit {
   isLoading: boolean = true;
   productData:any[]=[];
   categories:Category[]=[];
+  products:Product[] = [];
   
   
   
   
   constructor(private _productsService: ProductsService){}
   ngAfterViewInit(): void {
-    
-    throw new Error('Method not implemented.');
+  
   }
 
 
@@ -51,7 +53,7 @@ export class HomeComponent implements OnInit , AfterViewInit {
 
  this._productsService.getCategories().subscribe({
   next: (response)=>{
-    console.log(response);
+ 
     this.categories=response.data; 
 
  },

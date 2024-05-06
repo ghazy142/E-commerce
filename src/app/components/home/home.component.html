@@ -1,5 +1,5 @@
   <div>
-
+<!-- main slider section -->
       <section class="py-4">
         
         <div class="loader" *ngIf="isLoading">
@@ -34,7 +34,7 @@
         </div>
 
       </section>
-
+<!-- popular categries section -->
       <section class="py-4">
         <div class="loader" *ngIf="isLoading">
           <span class="loader-text">loading</span>
@@ -58,52 +58,54 @@
       <br>
 
       </section>
-
+<!-- products section -->
       <section>
-        <div class="loader" *ngIf="isLoading">
-          <span class="loader-text">loading</span>
-            <span class="load"></span>
-        </div>
-
+       <header>
         <div class="row g-4" >
-            <h2>Popular products</h2> 
-            <div   *ngFor="let item of productData" class="col-sm-6 col-md-4 col-lg-2">
-              <div class="" routerLink="/details">
-                <!-- <img class="w-100" [src]="item.imageCover"> -->
-                    <div class="prpduct-details">
-                        <img class="w-100" [src]="item.imageCover" alt="">
-                        <h4 class="font-sm text-main">{{item.category.name}}</h4>
-                        <h3 class="font-sm">{{item.title}}</h3>
-                        <div class="d-flex justify-content-between">
-                            <span>{{item.price}} EGP</span>
-                            <span>{{item.ratingsAverage}}<i class="fa-solid fa-star fa-fade rating-color"></i></span>
-                        </div>
+          <h2>Popular products</h2> 
+          <div   *ngFor="let item of productData" class="col-sm-6 col-md-4 col-lg-2">
+            <div>
+
+                  <div role="button" [routerLink]="['/productsdetails' , item._id]"  class="prpduct-details">
+                      <img class="w-100" [src]="item.imageCover" alt="">
+                      <h4 class="font-sm text-main">{{item.category.name}}</h4>
+                      <h3 class="font-sm">{{item.title}}</h3>
+                      <div class="d-flex justify-content-between">
+                          <span>{{item.price}} EGP</span>
+                          <span>{{item.ratingsAverage}}<i class="fa-solid fa-star fa-fade rating-color"></i></span>
+                      </div>
 
 
-                    </div>
-                        <!-- <button class="button-33" role="button">Add To Cart</button> -->
-                        <!-- new button -->
+                  </div>
+                  
+ 
+                    <div>
                         <button class="animated-button">
-                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                              <path
-                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                              ></path>
-                            </svg>
-                            <span class="text">Add To Cart   </span>
-                            <span class="circle"></span>
-                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                              <path
-                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                              ></path>
-                            </svg>
-                          </button>
-                          
-            
-                    
-                </div>
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                          ></path>
+                        </svg>
+                        <span class="text">Add To Cart   </span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
 
-            </div>
-        </div>
+                        
+          
+                  
+              </div>
+
+          </div>
+      </div>
+
+       </header>
+
 
       </section>
   </div>

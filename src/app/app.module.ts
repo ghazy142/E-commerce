@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CategoriesComponent } from './components/categories/categories.component';
@@ -22,6 +21,7 @@ import { MailConfirmComponent } from './components/mail-confirm/mail-confirm.com
 import { ROUTES, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,6 @@ import { CommonModule } from '@angular/common';
     RegisterComponent,
     AutLayoutComponent,
     BlankLayoutComponent,
-    DetailsproductsComponent,
     MailConfirmComponent,
   
     ],
@@ -48,7 +47,9 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CommonModule
+    CommonModule,
+    DetailsproductsComponent,
+    HomeComponent
   ],
   providers: [
     provideClientHydration()
