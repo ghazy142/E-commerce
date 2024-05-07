@@ -18,11 +18,12 @@ errMsg:string ='';
 isLoading:boolean = false;
 
   registerForm:FormGroup=new FormGroup({
-    firstName: new FormControl('' ,[ Validators.required , Validators.minLength(3) , Validators.maxLength(25)] ),
-    lastName: new FormControl('' ,[ Validators.required , Validators.minLength(3) , Validators.maxLength(25)] ),
+    name: new FormControl('' ,[ Validators.required , Validators.minLength(3) , Validators.maxLength(25)] ),
+    // lastName: new FormControl('' ,[ Validators.required , Validators.minLength(3) , Validators.maxLength(25)] ),
     email:new FormControl('',[ Validators.required , Validators.email] ),
     password:new FormControl('',[ Validators.required ,Validators.minLength(8)] ), 
-    phoneNumber:new FormControl('',[ Validators.required ,Validators.minLength(11)])
+    rePassword:new FormControl('',[ Validators.required ,Validators.minLength(8)] ), 
+    phone:new FormControl('',[ Validators.required ,Validators.minLength(11)])
   }
 
   );
@@ -37,9 +38,14 @@ console.log(this.registerForm.value);
       this._AuthService.register(userDate).subscribe(
         {
           next: (response)=>{
-    if(response.message==="Confirmation Code Has Been Sent"){
+    // if(response.message==="Confirmation Code Has Been Sent")
+      if(response.message==="success")
+      
+      {
       // login
-        this._Router.navigate(['/mailconfirm']);
+        // this._Router.navigate(['/mailconfirm']);
+        this._Router.navigate(['/login']);
+        localStorage.setItem('_token' , response.token);
         this.isLoading = false;
 
     }

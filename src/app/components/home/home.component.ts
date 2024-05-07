@@ -1,10 +1,12 @@
-import { Component, OnInit,AfterViewInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit, Renderer2 } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Category ,} from '../../interfaces/category';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Product } from '../../interfaces/product';
+import { CartService } from '../../services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -24,7 +26,12 @@ export class HomeComponent implements OnInit , AfterViewInit {
   
   
   
-  constructor(private _productsService: ProductsService){}
+  constructor(
+    private _productsService: ProductsService ,
+     private _CartService :CartService,
+     private _ToastrService: ToastrService,
+     private _Renderer2: Renderer2,
+    ){}
   ngAfterViewInit(): void {
   
   }
@@ -61,6 +68,31 @@ export class HomeComponent implements OnInit , AfterViewInit {
 
 
   });
+}
+
+
+addProduct(id:any , btnAdd:HTMLButtonElement): void {
+  this._Renderer2.setAttribute(btnAdd , 'disabled','true');
+  this._Renderer2.setStyle(btnAdd, 'cursor', 'not-allowed');
+  this._Renderer2.setStyle(btnAdd, 'pointer-events', 'none');
+this._CartService.addToCart(id).subscribe({
+  next: (response)=>{
+    console.log(response);
+    console.log(response.message); 
+    this._ToastrService.success(response.message)
+    this._Renderer2.removeAttribute(btnAdd , 'disabled','true');
+    this._Renderer2.removeStyle(btnAdd, 'cursor');
+    this._Renderer2.removeStyle(btnAdd, 'pointer-events');
+
+  },
+  error: (err)=>{
+    this._Renderer2.removeAttribute(btnAdd , 'disabled','true');
+    this._Renderer2.removeStyle(btnAdd, 'cursor');
+    this._Renderer2.removeStyle(btnAdd, 'pointer-events');
+
+  }
+
+})
 }
 
   categoryOptions: OwlOptions = {

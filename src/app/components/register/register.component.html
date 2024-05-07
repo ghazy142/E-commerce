@@ -1,16 +1,16 @@
 <section>
     <form [formGroup]="registerForm" (ngSubmit)="handleform()">
         <div class="form-item">
-            <label for="firstName">firstName</label>
-            <input formControlName="firstName" id="firstName" type="text" class="form-control">
+            <label for="name">name</label>
+            <input formControlName="name" id="name" type="text" class="form-control">
         </div>
 
-        <div *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors ">
-            <p class="alert alert-danger" *ngIf="registerForm.get('firstName')?.getError('required')">firstName is Required</p>
-            <p class="alert alert-danger" *ngIf="registerForm.get('firstName')?.getError('minlength')">firstName minlength is 3</p>
-            <p class="alert alert-danger" *ngIf="registerForm.get('firstName')?.getError('maxlength')">firstName Maxlength is 25</p>
+        <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors ">
+            <p class="alert alert-danger" *ngIf="registerForm.get('name')?.getError('required')">name is Required</p>
+            <p class="alert alert-danger" *ngIf="registerForm.get('name')?.getError('minlength')">name minlength is 3</p>
+            <p class="alert alert-danger" *ngIf="registerForm.get('name')?.getError('maxlength')">name Maxlength is 25</p>
         </div>
-        <div class="form-item">
+        <!-- <div class="form-item">
             <label for="lastName">lastName</label>
             <input formControlName="lastName" id="lastName" type="text" class="form-control">
         </div>
@@ -19,7 +19,7 @@
             <p class="alert alert-danger" *ngIf="registerForm.get('lastName')?.getError('required')">lastName is Required</p>
             <p class="alert alert-danger" *ngIf="registerForm.get('lastName')?.getError('minlength')">lastName minlength is 3</p>
             <p class="alert alert-danger" *ngIf="registerForm.get('lastName')?.getError('maxlength')">lastName Maxlength is 25</p>
-        </div>
+        </div> -->
 
 
         <div class="form-item">
@@ -43,23 +43,23 @@
             </div>
     
         </div>
-        <!-- <div class="form-item">
+        <div class="form-item">
             <label for="rePassword">rePassword</label>
             <input formControlName="rePassword" id="rePassword" type="password" class="form-control">
 
-            <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors ">
-                <p class="alert alert-danger" *ngIf="registerForm.get('password')?.getError('required')">password is Required</p>
-                <p class="alert alert-danger" *ngIf="registerForm.get('password')?.getError('minlength')">minlength is 8</p>
+            <div *ngIf="registerForm.get('rePassword')?.touched && registerForm.get('rePassword')?.errors ">
+                <p class="alert alert-danger" *ngIf="registerForm.get('rePassword')?.getError('required')">rePassword is Required</p>
+                <p class="alert alert-danger" *ngIf="registerForm.get('rePassword')?.getError('minlength')">minlength is 8</p>
             </div>
-            
-        </div> -->
-        <div class="form-item">
-            <label for="phoneNumber">phoneNumber</label>
-            <input formControlName="phoneNumber" id="phoneNumber" type="tel" class="form-control">
 
-            <div *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.errors ">
-                <p class="alert alert-danger" *ngIf="registerForm.get('phoneNumber')?.getError('required')">phone is Required</p>
-                <p class="alert alert-danger" *ngIf="registerForm.get('phoneNumber')?.getError('minlength')">minlength is 11</p>
+        </div>
+        <div class="form-item">
+            <label for="phone">phoneNumber</label>
+            <input formControlName="phone" id="phone" type="tel" class="form-control">
+
+            <div *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.errors ">
+                <p class="alert alert-danger" *ngIf="registerForm.get('phone')?.getError('required')">phone is Required</p>
+                <p class="alert alert-danger" *ngIf="registerForm.get('phone')?.getError('minlength')">minlength is 11</p>
             </div>
 
 

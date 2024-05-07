@@ -38,7 +38,7 @@ export class LoginComponent {
             next: (response)=>{
       if(response.token){
         // login
-        localStorage.setItem('_token' , 'response.token');
+        localStorage.setItem('_token' , response.token);
           this._Router.navigate(['/home']);
           this.isLoading = false;
   

@@ -22,7 +22,7 @@ import { ROUTES, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +49,9 @@ import { HomeComponent } from './components/home/home.component';
     BrowserAnimationsModule,
     CommonModule,
     DetailsproductsComponent,
-    HomeComponent
+    HomeComponent,
+    ToastrModule.forRoot(),
+    
   ],
   providers: [
     provideClientHydration()
