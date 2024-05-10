@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: '', component: BlankLayoutComponent , children: [
     { path: "", redirectTo:'home',pathMatch: 'full'},
     { path: "home",  component:HomeComponent ,canActivate:[authGuard] },
-    { path: "cart", component:CartComponent  , canActivate:[authGuard]},
+    { path: "cart", component:CartComponent },
     { path: "products", component:ProductsComponent , canActivate:[authGuard]},
     { path: "details",  component:DetailsproductsComponent , canActivate:[authGuard] },
     { path: "categories", component:CategoriesComponent , canActivate:[authGuard] },

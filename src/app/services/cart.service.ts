@@ -21,4 +21,45 @@ export class CartService {
       }
     )
   }
+
+
+
+  getCartUser():Observable<any>{
+    return this._HttpClient.get(this.baseUrl + 'cart' ,
+      {
+        headers:this.myToken
+      }
+    );
+  }
+
+  removeCartItem(prodId:string):Observable<any>{
+    return this._HttpClient.delete(this.baseUrl + `cart/${prodId}` ,
+      {
+        headers:this.myToken
+      }
+    );
+  }
+
+  updateCartCount(prodId:string ,countNum:number):Observable<any>{
+    return this._HttpClient.put(this.baseUrl + `cart/${prodId}`,
+    {
+      count: countNum
+    },
+    {
+      headers:this.myToken
+    }
+    );
+  }
+
+
+
+  clearCart():Observable<any>{
+    return this._HttpClient.delete(this.baseUrl + 'cart' ,
+      {
+        headers:this.myToken
+      }
+    );
+  }
+
 }
+ 

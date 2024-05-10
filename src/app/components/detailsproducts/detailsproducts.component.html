@@ -23,7 +23,7 @@
             <span class="small">{{productDetails.price | currency: "EGP"}}</span>
             <p class="mb-0">{{productDetails.ratingsAverage}}<i class="fa-solid fa-star fa-fade rating-color"></i></p>
         </div>
-        <button class="cssbuttons-io-button w-100">
+        <button (click)="addProduct(productDetails._id ,btnAdd)" #btnAdd class="cssbuttons-io-button w-100">
             ADD TO CART
             <div class="icon">
               <svg
