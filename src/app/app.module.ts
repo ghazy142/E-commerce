@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
+import { PaymentComponent } from './components/payment/payment.component';
+import { AllordersComponent } from './components/allorders/allorders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,8 @@ import { ToastrModule } from 'ngx-toastr';
     AutLayoutComponent,
     BlankLayoutComponent,
     MailConfirmComponent,
+    PaymentComponent,
+    AllordersComponent,
   
     ],
   imports: [

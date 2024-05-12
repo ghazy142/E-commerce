@@ -13,6 +13,8 @@ import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.compon
 import { authGuard } from './guards/auth.guard';
 import { DetailsproductsComponent } from './components/detailsproducts/detailsproducts.component';
 import { MailConfirmComponent } from './components/mail-confirm/mail-confirm.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { AllordersComponent } from './components/allorders/allorders.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,8 @@ const routes: Routes = [
     { path: "categories", component:CategoriesComponent , canActivate:[authGuard] },
     { path: "brands", component:BrandsComponent  , canActivate:[authGuard]},
     { path: "productsdetails/:id", component:DetailsproductsComponent, canActivate:[authGuard]},
+    { path: "payment/:id", component:PaymentComponent  , canActivate:[authGuard]},
+    { path: "allorders", component:AllordersComponent  , canActivate:[authGuard]},
 
 
   ]},
