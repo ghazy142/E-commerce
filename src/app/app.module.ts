@@ -25,6 +25,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { PaymentComponent } from './components/payment/payment.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +57,7 @@ import { AllordersComponent } from './components/allorders/allorders.component';
     DetailsproductsComponent,
     HomeComponent,
     ToastrModule.forRoot(),
-    
+    NgxPaginationModule,
   ],
   providers: [
     provideClientHydration()

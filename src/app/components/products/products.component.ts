@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @Component({
   selector: 'app-products',
@@ -16,11 +17,19 @@ constructor(private _productsService:ProductsService,
 
 ){}
 productData:any[]=[];
+pageSize:number = 0; //limit
+currentPage:number = 1; //current page
+total:number = 0; //total
+item:any = [];
+
   ngOnInit(): void {
     this._productsService.getProducts().subscribe({
       next: (response)=>{
         // console.log(response.data)
-        this.productData = response.data
+        this.productData = response.data;
+        this.pageSize= response.metadata.limit;
+        this.currentPage= response.metadata.currentPage;
+        this.total= response.result;
       },
       error: (err)=>{
         console.log(err)
@@ -53,6 +62,25 @@ productData:any[]=[];
   
   })
   }
+
+
+  pageChanged(event:any): void {
+    this._productsService.getProducts(event).subscribe({
+      next: (response)=>{
+        // console.log(response.data)
+        this.productData = response.data;
+        this.pageSize= response.metadata.limit;
+        this.currentPage= response.metadata.currentPage;
+        this.total= response.result;
+      },
+      error: (err)=>{
+        console.log(err)
+      }
+     });
+  }
+
+
+
 }
 
 

@@ -1,7 +1,10 @@
 <section class="section">
     <header>
      <div class="row g-4">
-       <div   *ngFor="let item of productData" class="col-sm-6 col-md-4 col-lg-2">
+       <div   *ngFor="let item of productData | paginate: { id: 'productPaginate',
+       itemsPerPage: pageSize,
+       currentPage: currentPage,
+       totalItems: total }"></div> class="col-sm-6 col-md-4 col-lg-2">
          <div>
 
                <div role="button" [routerLink]="['/productsdetails' , item._id]"  class="prpduct-details">
@@ -34,7 +37,10 @@
                        ></path>
                      </svg>
                    </button>
+  
+            
                  </div>
+ 
 
                      
        
@@ -42,9 +48,38 @@
            </div>
 
        </div>
-   </div>
+
 
     </header>
 
 
+
+
+
+
+
+<!-- 
+    <div class="page d-flx justify-content-center mt-5">
+        <pagination-controls  id="productPaginate"
+        (pageChange)="pageChanged($event)"
+        (pageBoundsCorrection)="pageChanged($event)"
+        [maxSize]="9"
+        [directionLinks]="true"
+        [autoHide]="true"
+        [responsive]="true"
+        previousLabel="Previous"
+        nextLabel="Next"
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="page"
+        screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+    
+    </div>  -->
+    
    </section>
+
+
+
+
+
+
