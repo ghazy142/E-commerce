@@ -2,12 +2,15 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+
 
 @Component({
+
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrl: './products.component.scss'
+  styleUrl: './products.component.scss',
+
 })
 export class ProductsComponent implements OnInit {
 constructor(private _productsService:ProductsService,
@@ -15,12 +18,19 @@ constructor(private _productsService:ProductsService,
   private _ToastrService: ToastrService,
   private _Renderer2: Renderer2,
 
+
 ){}
 productData:any[]=[];
 pageSize:number = 0; //limit
 currentPage:number = 1; //current page
 total:number = 0; //total
 item:any = [];
+
+
+// loadNextPage(): void {
+//   // Increment currentPage to load the next page
+//   this.currentPage++;
+// }
 
   ngOnInit(): void {
     this._productsService.getProducts().subscribe({
@@ -35,6 +45,11 @@ item:any = [];
         console.log(err)
       }
      });
+
+    //  this.pageScrollService.scroll({
+    //   document: this.document,
+    //   scrollTarget: '.theEnd',
+    // });
   }
 
 
@@ -63,7 +78,6 @@ item:any = [];
   })
   }
 
-
   pageChanged(event:any): void {
     this._productsService.getProducts(event).subscribe({
       next: (response)=>{
@@ -80,6 +94,23 @@ item:any = [];
   }
 
 
+
+
+
+  
+  mainSliderOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: true,
+    autoplay: false,
+    autoplayTimeout:2000,
+    autoplaySpeed:1000,
+    items:1,
+    nav: false,
+  }
+  
 
 }
 

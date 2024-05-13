@@ -25,7 +25,10 @@ import { HomeComponent } from './components/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { PaymentComponent } from './components/payment/payment.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +61,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HomeComponent,
     ToastrModule.forRoot(),
     NgxPaginationModule,
+    CarouselModule,
   ],
   providers: [
     provideClientHydration()
