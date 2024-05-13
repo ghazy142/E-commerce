@@ -2,9 +2,9 @@
 <!-- main slider section -->
       <section class="py-4">
         
-        <div class="loader" *ngIf="isLoading">
-          <span class="loader-text">loading</span>
-            <span class="load"></span>
+        <div class="loader-container" *ngIf="isLoading">
+          <div class="loader"></div>
+          <div class="loader-text">Loading...</div>
         </div>
 
         
@@ -62,8 +62,10 @@
       <section>
        <header>
         <div class="row g-4" >
+          <div class="d-flex justify-content-center align-items-center" ><input class="input w-50" placeholder="Search..." [(ngModel)]="searchQuery"></div>
+        
           <h2>Popular products</h2> 
-          <div   *ngFor="let item of productData" class="col-sm-6 col-md-4 col-lg-2">
+          <div   *ngFor="let item of filteredProducts" class="col-sm-6 col-md-4 col-lg-2">
             <div>
 
                   <div role="button" [routerLink]="['/productsdetails' , item._id]"  class="prpduct-details">

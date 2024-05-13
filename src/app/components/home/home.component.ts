@@ -7,6 +7,8 @@ import { RouterLink } from '@angular/router';
 import { Product } from '../../interfaces/product';
 import { CartService } from '../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [ CarouselModule,CommonModule,RouterLink ],
+  imports: [ CarouselModule,CommonModule,RouterLink,FormsModule ],
 
 })
 export class HomeComponent implements OnInit , AfterViewInit {
@@ -22,6 +24,7 @@ export class HomeComponent implements OnInit , AfterViewInit {
   productData:any[]=[];
   categories:Category[]=[];
   products:Product[] = [];
+  searchQuery: string = '';
   
   
   
@@ -93,6 +96,15 @@ this._CartService.addToCart(id).subscribe({
   }
 
 })
+}
+
+get filteredProducts(): Product[] {
+  if (!this.searchQuery) {
+    return this.productData;
+  }
+  return this.productData.filter(product =>
+    product.title.toLowerCase().startsWith(this.searchQuery.toLowerCase())
+  );
 }
 
   categoryOptions: OwlOptions = {

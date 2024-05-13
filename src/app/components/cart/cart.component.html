@@ -1,8 +1,8 @@
-<!-- <section class="m-auto p-auto">
-<div>
-    <img src="../../../assets/images/cart image.webp" class="w-100" alt="cart">
-</div>
-</section> -->
+        
+        <div class="loader-container" *ngIf="isLoading">
+            <div class="loader"></div>
+            <div class="loader-text">Loading...</div>
+          </div>
 <section class="cart-content w-75 mx-auto rounded shadow bg-main-light p-3 m-3 z-1 d-flex justify-content-center" *ngIf="cartDetails;else msg" >
     <div class="cart-content m-10 p-10 ">
         <div class="conts=ainer d-flex justify-content-between align-items-center">

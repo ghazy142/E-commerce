@@ -13,6 +13,7 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 
 })
 export class ProductsComponent implements OnInit {
+  isLoading: boolean = true;
 constructor(private _productsService:ProductsService,
   private _CartService :CartService,
   private _ToastrService: ToastrService,
@@ -33,6 +34,10 @@ item:any = [];
 // }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      // After the simulated delay, indicate that loading is complete
+      this.isLoading = false;
+    }, 3000);
     this._productsService.getProducts().subscribe({
       next: (response)=>{
         // console.log(response.data)

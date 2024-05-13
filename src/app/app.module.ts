@@ -62,6 +62,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ToastrModule.forRoot(),
     NgxPaginationModule,
     CarouselModule,
+    FormsModule,
   ],
   providers: [
     provideClientHydration()

@@ -7,10 +7,15 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit {
+  isLoading: boolean = true;
   constructor(private _CartService: CartService){}
   cartDetails:any=null;
 
   ngOnInit():void {
+    setTimeout(() => {
+      // After the simulated delay, indicate that loading is complete
+      this.isLoading = false;
+    }, 3000);
     this._CartService.getCartUser().subscribe({
       next: (response) => {
         console.log(response);
