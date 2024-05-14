@@ -1,1 +1,37 @@
-<p>brands works!</p>
+<section class="section">
+    <header>
+        <div class="loader-container" *ngIf="isLoading">
+            <div class="loader"></div>
+            <div class="loader-text">Loading...</div>
+          </div>
+     <div class="row g-4" >
+       <h2 class="fs-1">All Categories</h2> 
+       <div class="loader-container" *ngIf="isLoading">
+        <div class="loader"></div>
+        <div class="loader-text">Loading...</div>
+      </div>
+       <div   *ngFor="let item of productData" class="col-sm-6 col-md-4 col-lg-2">
+         <div>
+  
+               <div>
+                   <img class="img" [src]="item.image" alt="">
+                   <h4 class="font-sm text-main">{{item.name}}</h4>
+                   <div class="d-flex justify-content-between">
+                   </div>
+  
+  
+               </div>
+               
+
+  
+                     
+       
+               
+           </div>
+  
+       </div>
+   </div>
+  
+    </header>
+   </section>
+  

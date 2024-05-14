@@ -20,6 +20,14 @@ getCategories():Observable <any> {
   
   }
 
+  
+  getBrands():Observable <any> {
+
+    return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/brands`)
+    
+    }
+
+
 
 
 
