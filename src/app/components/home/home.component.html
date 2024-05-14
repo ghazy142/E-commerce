@@ -41,8 +41,10 @@
             <span class="load"></span>
         </div>
 
-
-        <h2>Popular categories</h2>
+        <div class="d-flex justify-content-center align-items-center">
+          <div class="animation m-3 justify-content-center fs-1">Popular categories...</div>
+        </div>
+    
 
       <br>
         <owl-carousel-o [options]="categoryOptions">
@@ -63,8 +65,10 @@
        <header>
         <div class="row g-4" >
           <div class="d-flex justify-content-center align-items-center" ><input class="input w-50" placeholder="Search..." [(ngModel)]="searchQuery"></div>
-        
-          <h2>Popular products</h2> 
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="animation m-3 justify-content-center fs-1">Popular Products...</div>
+          </div>
+
           <div   *ngFor="let item of filteredProducts" class="col-sm-6 col-md-4 col-lg-2">
             <div>
 
