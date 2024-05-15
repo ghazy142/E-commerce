@@ -65,7 +65,7 @@ export class CartService {
 
   checkOut(cartId:any ,orderInfo:object):Observable<any>{
     return this._HttpClient.post(this.baseUrl +
-      `orders/checkout-session/${cartId}?url=http://localhost:4200` ,
+      `orders/checkout-session/${cartId}?url=https://github.com/ghazy142/E-commerce` ,
       {
         shippingAddress:orderInfo
       },
